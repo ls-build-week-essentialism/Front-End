@@ -1,17 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Button } from 'semantic-ui-react';
 
-const ButtonExampleButton = () => <Button>Click Here</Button>
+import 'semantic-ui-css/semantic.min.css';
+import LoginScreen from './components/LoginScreen';
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <ButtonExampleButton />
-      </header>
+      <LoginScreen />
     </div>
   );
 }
