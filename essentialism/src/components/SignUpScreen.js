@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Checkbox } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
+import axios from 'axios';
 
 const SignUpForm = (props) => (
   <Form>
     <Form.Group>
-      <Form.Input onChange={event => props.handleChange(event)} label='First name' placeholder='First Name' width={6} name="firstName"/>
-      <Form.Input onChange={event => props.handleChange(event)} label='Last Name' placeholder='Last Name' width={6} name="lastName"/>
+      <Form.Input onChange={event => props.handleChange(event)} label='First name' placeholder='First Name' width={6} name="firstName" required/>
+      <Form.Input onChange={event => props.handleChange(event)} label='Last Name' placeholder='Last Name' width={6} name="lastName" required/>
     </Form.Group>
     <Form.Field>
-      <label>Email</label>
-      <Form.Input onChange={event => props.handleChange(event)} width={7} placeholder='Email' name="email" type="email"/>
+      <Form.Input onChange={event => props.handleChange(event)} label='Email' width={7} placeholder='Email' name="email" type="email" required/>
     </Form.Field>
     <Form.Field>
-      <label>Desired Password</label>
-      <Form.Input onChange={event => props.handleChange(event)} width={7} placeholder='Desired Password' name="password"/>
+      <Form.Input onChange={event => props.handleChange(event)} label='Password'width={7} placeholder='Desired Password' name="password" required/>
     </Form.Field>
     <Form.Field>
-    <Checkbox label='I agree to the Terms and Conditions' />
+    <Checkbox label='I agree to the Terms and Conditions'/>
     <Button onClick={event => props.handleSubmit(event)} to="/valueSelectorForm" as={Link} type='submit'>Submit</Button>
     </Form.Field> 
   </Form>
@@ -33,15 +31,14 @@ function SignUpScreen() {
     console.log(user);
   }
   function handleSubmit() {
-    console.log(user);
+    axios.post('https://only-essential.herokuapp.com/api/register/')
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
-
-  // useEffect(() => {
-  //   Axios.post("https://only-essential.herokuapp.com")
-  //     .then(res => {
-  //       console.log(res)
-  //     })
-  // })
 
   return (
     <section className="sign-up-form-container">
