@@ -1,32 +1,36 @@
 import React from 'react';
-import { Button, Checkbox, Form } from 'semantic-ui-react';
+import { Button, Form, Icon } from 'semantic-ui-react';
 
 
-const LoginForm = () => (
+const LoginField = () => (
   <Form className="login-form">
+    <h2 className="login-title">Log In</h2>
     <Form.Field>
       <label>Email</label>
-      <input placeholder='Email' />
+      <input style={{marginBottom: "20px"}} className="login-input" placeholder='Email' />
     </Form.Field>
     <Form.Field>
       <label>Password</label>
-      <input placeholder='Password' />
-    </Form.Field>
-    <Form.Field>
-      <Checkbox label='I agree to the Terms and Conditions' />
+      <input style={{marginBottom: "20px"}} className="login-input" placeholder='Password' />
     </Form.Field>
     <Button type='submit'>Submit</Button>
   </Form>
 );
 
-function LoginScreen() {
+const SignUpField = () => (
+  <div className="sign-up-container">
+    <h3>New User?</h3>
+    <Icon name='user'></Icon>
+    <a href="###">Sign Up</a>
+  </div>
+);
+
+export default function LoginScreen() {
 
   return(
-    <section className="login-container">
-      <LoginForm /> 
-      <LoginForm />
+    <section className="login-screen-main-container">
+      <LoginField />
+      <SignUpField />
     </section>
   );
 }
-
-export default LoginScreen;
