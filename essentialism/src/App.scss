@@ -1,10 +1,13 @@
+body {
+  background: #26d1f2;
+}
 .App {
   text-align: center;
   flex-direction: column;
   display: flex;
   justify-content: center;
-  height: 100vh;
   width: 100vw;
+  height: 100%;
   background: #26d1f2;
 
   img {
@@ -63,7 +66,8 @@
     padding: 3%;
     margin-top: 10%;
 
-    .field, .fields {
+    .field,
+    .fields {
       display: flex;
       justify-content: center;
       justify-content: space-evenly;
@@ -72,7 +76,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      
+
       label {
         margin-top: 10px;
       }
@@ -86,27 +90,32 @@
   }
 }
 
-.value-selector-container {
-  display: flex;
-  flex-direction: row;
-  margin: auto;
-  width: 60%;
-  height: 40%;
-  background: white;
-  padding: 20px;
-  border-radius: 5px;
-}
 
 @keyframes fadeIn {
   0% {
     opacity: 0;
-  } 50% {
-    opacity: .3;
-  } 100% {
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
     opacity: 1;
   }
 }
 
+.activities {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  width: 80%;
+  background-color: white;
+  .activityLink {
+    display: flex;
+    justify-content: space-evenly;
+    width: 40%;
+    text-align: left;
+  }
+}
 .dashboard-container {
   width: 80%;
   height: 600px;
@@ -117,14 +126,124 @@
   border-radius: 10px;
   animation: fadeIn .5s ease-in;
   box-shadow: 25px 25px 0px 0px #4710f6;
+}
 
-  .dashboard-nav-bar {
-    
+.value-selector-container{
+  margin: auto;
+  margin-bottom: 100px;
+  width: 70%;
+  height: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 25px 25px 0px 0px #4710f6;
+  animation: fadeIn .5s ease-in;
+  h2{
+      text-align: center; 
+  } 
+  h3{
+      text-align: center; 
+  }
+  
+}
 
-    Link {
-      background: #fc3208;
+.value-selector-header {
+  display: block;
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+.value-selector-list{
+  padding: 1%;
+  margin: 1%;
+  display: flex;
+  justify-content: space-around;
+}
+.create-values{
+  border-radius: 6px; 
+  padding: 2%;
+  background-color: #80f3bc;
+  box-shadow: 3px 3px 2px 0 grey;
+  height: 200px;
+  width: 45%;
+  // margin: 0 auto; 
+  .button {
+    margin-top: 30px;
+    background: #496cf3;
+    color: white;
+    &:hover {
+      background: #6a82e4;
       color: white;
-      text-decoration: none;
+    }
+    &:focus {
+      background: #496cf3;
+      color: white;
     }
   }
+}
+
+.default-values {
+  border-radius: 6px;
+  background: #80f3bc;
+  padding: .5%;
+  box-shadow: 3px 3px 2px 0 grey;
+  width: 45%;
+}
+.default-values-inner {
+  box-shadow: none;
+  width: 100%;
+
+  .value-card{
+    margin: 2%;
+    padding: 2% 1%;
+    background-color: white;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+
+    .item {
+      border: none;
+    }
+    .button {
+      background: #496cf3;
+      color: white;
+      &:hover {
+        background: #6a82e4;
+        color: white;
+      }
+      &:focus {
+        background: #496cf3;
+        color: white;
+      }
+    }
+  }
+}
+
+.my-values{
+  width: 400px;
+  top: 70%;
+  background: #80f3bc;
+  border-radius: 6px;
+  padding: 2%;
+  box-shadow: 3px 3px 2px 0 grey;
+  position: absolute;
+  .button {
+    background: #496cf3;
+    color: white;
+    &:hover {
+      background: #6a82e4;
+      color: white;
+    }
+    &:focus {
+      background: #496cf3;
+      color: white;
+    }
+  }
+}
+
+.ui.celled.list>.item {
+  border: none;
+}
+.ui.celled.list>.item:last-child {
+  border: none;
 }

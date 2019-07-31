@@ -23,12 +23,12 @@ function ValueSelectorForm() {
   }
 
   return (
-    <div>
+    <div className="value-selector-container">
       <div className="value-selector-header">
           <h2>What is most important to you?</h2>
           <p>Select values that are important to you, or create your own below</p> 
       </div>
-      <section className="value-selector-container">
+      <section className="value-selector-container-inner">
         <div className="value-selector-list">
           <Form onSubmit={handleValSubmit} className="create-values">
             <Form.Field>  
@@ -43,7 +43,7 @@ function ValueSelectorForm() {
           </Form>
           
           <div className="default-values">
-            <Form onSubmit={handleDefaultSubmit} className="default-values">
+            <Form onSubmit={handleDefaultSubmit} className="default-values default-values-inner">
               <h3>Choose a value</h3>                
               {defaultValues.map(value => (
                 <div className="value-card">
