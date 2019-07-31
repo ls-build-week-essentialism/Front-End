@@ -15,7 +15,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={LoginScreen} />
         <Route path="/value" component={ValueSelectorForm} />
-        <Route path="/activityDisplay" component={ActivityDisplay} />
+        <Route path="/activity" component={ActivityDisplay} />
         <Route path="/signupForm" component={SignUpScreen} />
       </Switch>
     </div>
