@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import { Button, Checkbox, Form, List } from "semantic-ui-react";
 import ValueCard from "./ValueCard"
-import "../../src/ValueSelectorForm.scss"
 
 const defaultValues = ["Athletic Ability", "Art & Literature", "Being creative/inventing new things", "Independence", "Kindness and generosity", "Living in the moment", "Membership in a social group", "Music", "Improving my community", "My moral principles", "Nature and the environment", "Relationships with friends and family", "Sense of humor", "Success in my career"];
 
