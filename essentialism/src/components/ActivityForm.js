@@ -2,20 +2,21 @@ import React, { useState } from "react";
 import { Button, Form } from "semantic-ui-react";
 
 function ActivityForm(props) {
-  console.log("props form", props);
-  const { submitActivity, editActivity } = props;
+  //console.log("props form", props);
+  const { submitActivity, initialActivity, buttonText, history } = props;
   const [actions, setActions] = useState(
-    { id: "", activity: "" } || editActivity
+    initialActivity || { id: "", activity: "" }
   );
 
   function handleSubmit(event) {
     event.preventDefault();
     submitActivity(actions);
     setActions({ activity: "", id: "" });
+    history.push("/activity");
   }
 
   function handleChange(event) {
-    setActions({ [event.target.name]: event.target.value });
+    setActions({ ...actions, [event.target.name]: event.target.value });
   }
 
   //console.log(activities);
@@ -31,7 +32,7 @@ function ActivityForm(props) {
           value={actions.activity}
         />
       </Form.Field>
-      <Button type="submit">Submit</Button>
+      <Button type="submit">{buttonText}</Button>
     </Form>
   );
 }
