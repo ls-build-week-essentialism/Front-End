@@ -2,7 +2,8 @@ import React from "react";
 import { Button, Card } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-function ActivityCard({ activity }) {
+function ActivityCard(props) {
+  const { activity, deleteActivity } = props;
   return (
     <Card>
       <Card.Content>
@@ -14,7 +15,13 @@ function ActivityCard({ activity }) {
             Edit
           </Button>
         </Link>
-        <Button basic color="red">
+        <Button
+          basic
+          color="red"
+          onClick={activity => {
+            console.log("event activity", activity);
+          }}
+        >
           Delete
         </Button>
       </Card.Content>
