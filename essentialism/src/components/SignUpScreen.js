@@ -13,7 +13,7 @@ const SignUpForm = (props) => (
       <Form.Input onChange={event => props.handleChange(event)} label='Email' width={7} placeholder='Email' name="email" type="email" required/>
     </Form.Field>
     <Form.Field>
-      <Form.Input onChange={event => props.handleChange(event)} label='Password'width={7} placeholder='Desired Password' name="password" required/>
+      <Form.Input onChange={event => props.handleChange(event)} label='Password'width={7} placeholder='Desired Password' name="password" type="password" required/>
     </Form.Field>
     <Form.Field>
     <Checkbox label='I agree to the Terms and Conditions'/>
@@ -27,10 +27,11 @@ function SignUpScreen() {
 
   function handleChange(event) {
     const newUser = {...user, [event.target.name]: event.target.value}
-    setUser(newUser)
+    setUser(newUser);
     console.log(user);
   }
   function handleSubmit(event) {
+    event.preventDefault();
     axios.post('https://only-essential.herokuapp.com/api/register/', user)
       .then(res => {
         console.log(user);
