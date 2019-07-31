@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Form, Icon } from 'semantic-ui-react';
+import { Button, Form, Icon, FeedUser } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -15,7 +15,7 @@ const LoginField = (props) => (
       <label>Password</label>
       <input onChange={event => props.handleChange(event)} style={{marginBottom: "20px"}} type="password" className="login-input" placeholder='Password' name="password"/>
     </Form.Field>
-    <Button onClick={event => props.checkLogin()} type='submit'>Submit</Button>
+    <Button as={Link} to="/userDashboard" onClick={event => props.checkLogin(event)} type='submit'>Submit</Button>
   </Form>
 );
 
@@ -29,6 +29,7 @@ const SignUpField = () => (
 
 export default function LoginScreen() {
   const [loginInfo, setLoginInfo] = useState({});
+  const [isLoginValid, setLoginValid] = useState(false);
 
   function handleChange(event) {
     const currentLoginInfo = {...loginInfo, [event.target.name]: event.target.value};
@@ -36,13 +37,23 @@ export default function LoginScreen() {
     console.log(loginInfo);
   };
 
-  function checkLogin() {
-    axios.post('https://only-essential.herokuapp.com/api/login/')
+  function checkLogin(event) {
+    event.preventDefault();
+    
+    axios.post('https://only-essential.herokuapp.com/api/login/', loginInfo)
     .then(res => {
-      console.log(res);
+      console.log(loginInfo);
+      console.log(res.statusText);
+      if(res.statusText !== "OK") event.preventDefault();
+      else if (res.statusText === "OK") { 
+        setLoginValid(true);
+        console.log(isLoginValid); 
+        return true;
+      }
     })
     .catch(err => {
       console.log(err);
+      console.log(isLoginValid);
     })
   };
 

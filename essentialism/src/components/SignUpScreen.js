@@ -30,9 +30,11 @@ function SignUpScreen() {
     setUser(newUser)
     console.log(user);
   }
-  function handleSubmit() {
-    axios.post('https://only-essential.herokuapp.com/api/register/')
+  function handleSubmit(event) {
+    event.preventDefault();
+    axios.post('https://only-essential.herokuapp.com/api/register/', user)
       .then(res => {
+        console.log(user);
         console.log(res);
       })
       .catch(err => {
