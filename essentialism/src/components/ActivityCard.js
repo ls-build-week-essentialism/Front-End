@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function ActivityCard(props) {
   const { activity, deleteActivity } = props;
+  console.log(props);
   return (
     <Card>
       <Card.Content>
@@ -18,8 +19,9 @@ function ActivityCard(props) {
         <Button
           basic
           color="red"
-          onClick={activity => {
+          onClick={event => {
             console.log("event activity", activity);
+            deleteActivity(activity);
           }}
         >
           Delete

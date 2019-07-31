@@ -25,13 +25,15 @@ function ActivityDisplay() {
 
   const deleteActivity = deleteActivity => {
     const activitiesCopy = [...activities];
+    console.log(activitiesCopy);
     const oldIndex = activitiesCopy.findIndex(
       activity => activity.id === deleteActivity.id
     );
-    console.log("deleteActivity", deleteActivity, "OldActivity", oldIndex);
+    console.log("deleteActivity", deleteActivity, "OldIndex", oldIndex);
 
-    const removed = activitiesCopy.splice(oldIndex);
-    setActivities(removed);
+    const removed = activitiesCopy.splice(oldIndex, 1);
+    console.log("activitiesCopy", activitiesCopy, "removed", removed);
+    setActivities(activitiesCopy);
   };
 
   return (
@@ -48,7 +50,7 @@ function ActivityDisplay() {
             <ActivityCard
               key={activity.id}
               activity={activity}
-              delete={deleteActivity}
+              deleteActivity={deleteActivity}
             />
           ))
         }
