@@ -45,6 +45,8 @@ export default function LoginScreen() {
       if (res.statusText === "OK") { 
         setLoginValid(true);
         console.log(res);
+      } else if (res.statusText !== "OK") {
+        alert("Invalid Username or Password");
       }
     })
     .catch(err => {

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, List, Form } from "semantic-ui-react";
-import "../../src/ValueSelectorForm.scss";
 
 //constructor function for a list of items with an "Add" button
 //onClick

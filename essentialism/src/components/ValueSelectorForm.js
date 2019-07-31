@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import { Button, Checkbox, Form, List } from "semantic-ui-react";
 import ValueCard from "./ValueCard"
-import "../../src/ValueSelectorForm.scss"
 
 const defaultValues = ["Athletic Ability", "Art & Literature", "Being creative/inventing new things", "Independence", "Kindness and generosity", "Living in the moment", "Membership in a social group", "Music", "Improving my community", "My moral principles", "Nature and the environment", "Relationships with friends and family", "Sense of humor", "Success in my career"];
 
@@ -23,12 +22,12 @@ function ValueSelectorForm() {
   }
 
   return (
-    <div>
+    <div className="value-selector-container">
       <div className="value-selector-header">
           <h2>What is most important to you?</h2>
           <p>Select values that are important to you, or create your own below</p> 
       </div>
-      <section className="value-selector-container">
+      <section className="value-selector-container-inner">
         <div className="value-selector-list">
           <Form onSubmit={handleValSubmit} className="create-values">
             <Form.Field>  
@@ -43,7 +42,7 @@ function ValueSelectorForm() {
           </Form>
           
           <div className="default-values">
-            <Form onSubmit={handleDefaultSubmit} className="default-values">
+            <Form onSubmit={handleDefaultSubmit} className="default-values default-values-inner">
               <h3>Choose a value</h3>                
               {defaultValues.map(value => (
                 <div className="value-card">
