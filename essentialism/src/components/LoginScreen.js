@@ -1,5 +1,8 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { Button, Form, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 const LoginField = () => (
@@ -21,11 +24,18 @@ const SignUpField = () => (
   <div className="sign-up-container">
     <h3>New User?</h3>
     <Icon name='user'></Icon>
-    <a href="###">Sign Up</a>
+    <Link to="/signupForm">Sign Up</Link>
   </div>
 );
 
 export default function LoginScreen() {
+
+  useEffect(() => {
+    axios.post("https://only-essential.herokuapp.com/api/register")
+    .then(res => {
+      console.log(res);
+    })
+  })
 
   return(
     <section className="login-screen-main-container">
