@@ -67,6 +67,7 @@ function ValueSelectorForm() {
                 {ValueCard(userValue)}
               </div>
             ))}
+            <Button>Confirm My Values</Button>
           </div>
 
         </div>
