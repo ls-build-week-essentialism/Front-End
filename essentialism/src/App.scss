@@ -9,7 +9,6 @@
 
   img {
     width: 300px;
-    position: absolute;
     top: 3%;
     align-self: center;
   }
@@ -24,7 +23,8 @@
   padding: 20px;
   border-radius: 10px;
   animation: fadeIn .5s ease-in;
-  margin-bottom: 5%;
+  margin-top: 0;
+  box-shadow: 25px 25px 0px 0px #4710f6;
   .login-form {
     width: 1000px;
     margin: auto;
@@ -48,13 +48,14 @@
 
 .sign-up-form-container {
   margin: auto;
+  margin-top: 0;
   width: 60%;
   height: 60%;
   background: white;
   padding: 20px;
   border-radius: 10px;
   animation: fadeIn .5s ease-in;
-  margin-bottom: 5%;
+  box-shadow: 25px 25px 0px 0px #4710f6;
 
   .form {
     display: flex;
@@ -103,5 +104,27 @@
     opacity: .3;
   } 100% {
     opacity: 1;
+  }
+}
+
+.dashboard-container {
+  width: 80%;
+  height: 600px;
+  margin: auto;
+  margin-top: 0;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  animation: fadeIn .5s ease-in;
+  box-shadow: 25px 25px 0px 0px #4710f6;
+
+  .dashboard-nav-bar {
+    
+
+    Link {
+      background: #fc3208;
+      color: white;
+      text-decoration: none;
+    }
   }
 }
