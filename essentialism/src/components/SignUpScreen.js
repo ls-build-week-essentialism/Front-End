@@ -17,10 +17,10 @@ const SignUpForm = (props) => (
     </Form.Field>
     <Form.Field>
     <Checkbox label='I agree to the Terms and Conditions'/>
-    <Button onClick={event => props.handleSubmit(event)} to="/valueSelectorForm" as={Link} type='submit'>Submit</Button>
+    <Button onClick={event => props.handleSubmit(event)} to="/value" as={Link} type='submit'>Submit</Button>
     </Form.Field> 
   </Form>
-)
+);
 
 function SignUpScreen() {
   const [user, setUser] = useState({});
@@ -31,7 +31,6 @@ function SignUpScreen() {
     console.log(user);
   }
   function handleSubmit(event) {
-    event.preventDefault();
     axios.post('https://only-essential.herokuapp.com/api/register/', user)
       .then(res => {
         console.log(user);

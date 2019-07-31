@@ -6,6 +6,7 @@ import LoginScreen from "./components/LoginScreen";
 import ValueSelectorForm from "./components/ValueSelectorForm";
 import ActivityForm from "./components/ActivityForm";
 import SignUpScreen from "./components/SignUpScreen";
+import UserDashboard from "./components/UserDashboard";
 import logo from './images/logo.png'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/value" component={ValueSelectorForm} />
         <Route path="/activityForm" component={ActivityForm} />
         <Route path="/signupForm" component={SignUpScreen}/>
+        <Route path="/userDashboard" component={UserDashboard}/>
       </Switch>
     </div>
   );

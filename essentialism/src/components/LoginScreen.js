@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Form, Icon, FeedUser } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Button, Form, Icon } from 'semantic-ui-react';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -39,16 +39,12 @@ export default function LoginScreen() {
 
   function checkLogin(event) {
     event.preventDefault();
-    
+
     axios.post('https://only-essential.herokuapp.com/api/login/', loginInfo)
     .then(res => {
-      console.log(loginInfo);
-      console.log(res.statusText);
-      if(res.statusText !== "OK") event.preventDefault();
-      else if (res.statusText === "OK") { 
+      if (res.statusText === "OK") { 
         setLoginValid(true);
-        console.log(isLoginValid); 
-        return true;
+        console.log(res);
       }
     })
     .catch(err => {
@@ -56,6 +52,7 @@ export default function LoginScreen() {
       console.log(isLoginValid);
     })
   };
+  if(isLoginValid === true) return <Redirect to="/userDashboard"/>
 
   return(
     <section className="login-screen-main-container">
