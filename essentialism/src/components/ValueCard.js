@@ -1,15 +1,21 @@
 import React, { useState } from "react";
-import { Button, Checkbox, Form } from "semantic-ui-react";
+import { Button, List, Form } from "semantic-ui-react";
+import "../../src/ValueSelectorForm.scss";
 
-
-const ValueCard = () => (
-    <div className="valueCard-container">
-        <div>props</div>
-        <div>
-            <button>Add to My Values</button>
-            <button>Edit this Value</button>
-        </div>
-    </div>
+//constructor function for a list of items with an "Add" button
+//onClick
+const ValueCard = (value) => (
+    <List celled>
+        <List.Item>
+            <List.Content >
+              <h5>{value}</h5>      
+            </List.Content>
+        <List.Content >
+            <Button>Add to My Values</Button>
+            {/* <Button>Edit this Value</Button> */}
+        </List.Content>
+        </List.Item>
+    </List>
 )
 
 export default ValueCard;

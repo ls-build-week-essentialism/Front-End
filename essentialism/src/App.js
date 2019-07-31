@@ -10,8 +10,8 @@ import logo from './images/logo.png'
 
 function App() {
   return (
-    <div className="App">
-      <img src={logo} />
+    <div >
+      {/* <img src={logo} /> */}
       <Switch>
         <Route exact path="/" component={LoginScreen} />
         <Route path="/value" component={ValueSelectorForm} />
