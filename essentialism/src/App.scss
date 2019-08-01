@@ -1,5 +1,5 @@
 body {
-  background: #26d1f2;
+  background: #26d0f2b7;
 }
 .App {
   text-align: center;
@@ -89,7 +89,6 @@ body {
   }
 }
 
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -127,8 +126,7 @@ body {
   box-shadow: 25px 25px 0px 0px #4710f6;
 }
 
-  
-.value-selector-container{
+.value-selector-container {
   margin: auto;
   margin-bottom: 100px;
   width: 70%;
@@ -137,14 +135,13 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 25px 25px 0px 0px #4710f6;
-  animation: fadeIn .5s ease-in;
-  h2{
-      text-align: center; 
-  } 
-  h3{
-      text-align: center; 
+  animation: fadeIn 0.5s ease-in;
+  h2 {
+    text-align: center;
   }
-  
+  h3 {
+    text-align: center;
+  }
 }
 
 // .value-selector-header {
@@ -160,13 +157,13 @@ body {
 //   justify-content: space-around;
 // }
 // .create-values{
-//   border-radius: 6px; 
+//   border-radius: 6px;
 //   padding: 2%;
 //   background-color: #80f3bc;
 //   box-shadow: 3px 3px 2px 0 grey;
 //   height: 200px;
 //   width: 45%;
-//   // margin: 0 auto; 
+//   // margin: 0 auto;
 //   .button {
 //     margin-top: 30px;
 //     background: #496cf3;
