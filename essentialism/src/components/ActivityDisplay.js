@@ -94,6 +94,7 @@ function ActivityDisplay() {
           }}
         />
       </section>
+      <Link to="/userDashboard">Go</Link>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 import "./App.scss";
@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <img src={logo} alt="logo" />
       <Switch>
-        <Route exact path="/" component={LoginScreen} />
+        <Route exact path="/" render={(props) => <LoginScreen {...props}/>} />
         <Route path="/value" component={ValueSelectorForm} />
         <Route path="/activity" component={ActivityDisplay} />
         <Route path="/signupForm" component={SignUpScreen} />
