@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import ActivityForm from "./ActivityForm";
 import ActivityCard from "./ActivityCard";
 import { Route, Link } from "react-router-dom";
+import { List, Button } from "semantic-ui-react";
+import "../../src/activity.scss";
 
 function ActivityDisplay() {
   const [activities, setActivities] = useState([]);
@@ -37,50 +39,61 @@ function ActivityDisplay() {
   };
 
   return (
-    <div className="activities">
-      <div className="activityLink">
-        <Link to="/activity">Activity List</Link>
-        <Link to="/activity/add">Add Activity</Link>
+    <div>
+      <div className="value-selector-header">
+        <h2>Let's take a look at the activities you do</h2>
+        <p>please add as many as your routine activities as you'd like</p>
       </div>
-      <Route
-        exact
-        path="/activity"
-        render={props =>
-          activities.map(activity => (
-            <ActivityCard
-              key={activity.id}
-              activity={activity}
-              deleteActivity={deleteActivity}
-            />
-          ))
-        }
-      />
-      <Route
-        path="/activity/add"
-        render={props => (
-          <ActivityForm
-            {...props}
-            submitActivity={addActivity}
-            buttonText="Add Activity"
-          />
-        )}
-      />
-      <Route
-        path="/activity/edit/:id"
-        render={props => {
-          const activity = activities.find(
-            activity => activity.id.toString() === props.match.params.id
-          );
-          return (
+      <section className="activity-screen-container">
+        <div className="activityLink">
+          <Link to="/activity/add">
+            <Button color="teal">Add Activity</Button>
+          </Link>
+        </div>
+        <Route
+          exact
+          path="/activity"
+          render={props =>
+            activities.map(activity => (
+              <section className="activity-list">
+                <List>
+                  <ActivityCard
+                    key={activity.id}
+                    activity={activity}
+                    deleteActivity={deleteActivity}
+                  />
+                </List>
+              </section>
+            ))
+          }
+        />
+        <Route
+          path="/activity/add"
+          render={props => (
             <ActivityForm
               {...props}
-              initialActivity={activity}
-              submitActivity={editActivity}
-              buttonText="Edit Activity"
+              submitActivity={addActivity}
+              buttonText="Add Activity"
             />
-          );
-        }}
-      />
+          )}
+        />
+        <Route
+          path="/activity/edit/:id"
+          render={props => {
+            const activity = activities.find(
+              activity => activity.id.toString() === props.match.params.id
+            );
+            return (
+              <ActivityForm
+                {...props}
+                initialActivity={activity}
+                submitActivity={editActivity}
+                buttonText="Edit Activity"
+              />
+            );
+          }}
+        />
+      </section>
     </div>
   );
 }
