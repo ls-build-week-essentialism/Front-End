@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, List, Form } from "semantic-ui-react";
-import "../../src/ValueSelectorForm.scss";
 
 const ValueCard = (value) => (
     <List celled>
