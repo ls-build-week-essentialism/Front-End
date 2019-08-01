@@ -21,11 +21,10 @@ body {
   flex-direction: row;
   margin: auto;
   width: 60%;
-  height: 60%;
   background: white;
-  padding: 20px;
-  // border-radius: 10px;
-  // animation: fadeIn .5s ease-in;
+  padding: 80px 20px;
+  border-radius: 10px;
+  animation: fadeIn .5s ease-in;
   margin-top: 0;
   box-shadow: 25px 25px 0px 0px #4710f6;
   .login-form {
@@ -56,8 +55,8 @@ body {
   height: 60%;
   background: white;
   padding: 20px;
-  //border-radius: 10px;
-  //animation: fadeIn 0.5s ease-in;
+  border-radius: 10px;
+  animation: fadeIn 0.5s ease-in;
   box-shadow: 25px 25px 0px 0px #4710f6;
 
   .form {
