@@ -19,7 +19,7 @@ const LoginField = (props) => (
   </Form>
 );
 
-const SignUpField = () => (
+const SignUpField = (props) => (
   <div className="sign-up-container">
     <h3>New User?</h3>
     <Icon name='user'></Icon>
@@ -27,9 +27,11 @@ const SignUpField = () => (
   </div>
 );
 
-export default function LoginScreen() {
+export default function LoginScreen(props) {
   const [loginInfo, setLoginInfo] = useState({});
   const [isLoginValid, setLoginValid] = useState(false);
+  const [userId, setUserId] = useState(0);
+  
 
   function handleChange(event) {
     const currentLoginInfo = {...loginInfo, [event.target.name]: event.target.value};
@@ -43,6 +45,7 @@ export default function LoginScreen() {
     axios.post('https://only-essential.herokuapp.com/api/login/', loginInfo)
     .then(res => {
       if (res.statusText === "OK") { 
+        setUserId(res.data.id);
         setLoginValid(true);
         console.log(res);
       } else if (res.statusText !== "OK") {
@@ -54,7 +57,8 @@ export default function LoginScreen() {
       console.log(isLoginValid);
     })
   };
-  if(isLoginValid === true) return <Redirect to="/userDashboard"/>
+  
+  if(isLoginValid === true) return <Redirect  to={{pathname: '/userDashboard', state: {id: `${userId}`}}}/>
 
   return(
     <section className="login-screen-main-container">
