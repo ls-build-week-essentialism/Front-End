@@ -15,7 +15,7 @@ const LoginField = (props) => (
       <label>Password</label>
       <input onChange={event => props.handleChange(event)} style={{marginBottom: "20px"}} type="password" className="login-input" placeholder='Password' name="password"/>
     </Form.Field>
-    <Button as={Link} to="/userDashboard" onClick={event => props.checkLogin(event)} type='submit'>Submit</Button>
+    <Button className="login-btn" as={Link} to="/userDashboard" onClick={event => props.checkLogin(event)} type='submit'>Submit</Button>
   </Form>
 );
 

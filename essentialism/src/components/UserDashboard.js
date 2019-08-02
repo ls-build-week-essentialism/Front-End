@@ -18,6 +18,8 @@ function DisplayList(props) {
 function UserDashboard(props) {
   const [myActivities, setMyActivities] = useState([]);
   const [myValues, setmyValues] = useState([]);
+  if(props.location.state === undefined) {props.location.state = {id: 1}}
+  console.log(props);
 
 
   // let sampleValues = "a";
@@ -88,7 +90,7 @@ function UserDashboard(props) {
         ))}
 
         <Button compact>
-          <Link to="/activity">view activity</Link>
+          <Link to={{pathname: '/activity', state: {id: `${props.location.state.id}`}}}>view activity</Link>
         </Button>
       </div>
     </section>

@@ -94,7 +94,7 @@ function ActivityDisplay() {
           }}
         />
         <div className="activity-dashboard">
-          <Button compact color="Teal">
+          <Button compact color="teal">
             <Link to="/userDashboard">Go To Dashboard</Link>
           </Button>
         </div>

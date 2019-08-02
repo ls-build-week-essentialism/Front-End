@@ -26,17 +26,24 @@ body {
   animation: fadeIn 0.5s ease-in;
   margin-top: 0;
   box-shadow: 25px 25px 0px 0px #4710f6;
-  .login-form {
-    width: 1000px;
-    margin: auto;
-    padding: 30px 40px;
+
+    .login-form {
+      width: 1000px;
+      margin: auto;
+      padding: 30px 40px;
+
+      .button {
+        background: teal;
+        color: white;
+        border: none;
+      }
+    }
 
     .login-title {
       text-shadow: 2px 2px 3px lightgrey;
       font-size: 2.2rem;
       margin-bottom: 40px;
     }
-  }
   .login-form:first-child {
     border-right: 1px solid lightgrey;
   }
