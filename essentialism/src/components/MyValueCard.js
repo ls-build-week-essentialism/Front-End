@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Button, List} from "semantic-ui-react";
+import React from "react";
 import "../../src/ValueSelectorForm.scss";
 
 //generates cards for My Values vis props from ValueSelectorForm.js
