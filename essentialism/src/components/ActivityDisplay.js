@@ -95,7 +95,14 @@ function ActivityDisplay() {
         />
         <div className="activity-dashboard">
           <Button compact color="Teal">
-            <Link to="/userDashboard">Go To Dashboard</Link>
+            <Link
+              to={{
+                pathname: "/userDashboard",
+                state: { id: `${localStorage.getItem("id")}` }
+              }}
+            >
+              Go To Dashboard
+            </Link>
           </Button>
         </div>
       </section>

@@ -18,18 +18,18 @@ function DisplayList(props) {
 function UserDashboard(props) {
   const [myActivities, setMyActivities] = useState([]);
   const [myValues, setmyValues] = useState([]);
-  let sampleValues = "a";
+  // let sampleValues = "a";
 
-  axios
-    .post(
-      `https://only-essential.herokuapp.com/api/createdvalues/${
-        props.location.state.id
-      }`,
-      sampleValues
-    )
-    .then(res => {
-      console.log(res);
-    });
+  // axios
+  //   .post(
+  //     `https://only-essential.herokuapp.com/api/createdvalues/${
+  //       props.location.state.id
+  //     }`,
+  //     sampleValues
+  //   )
+  //   .then(res => {
+  //     console.log(res);
+  //   });
 
   useEffect(() => {
     axios
