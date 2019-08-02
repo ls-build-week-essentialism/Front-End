@@ -24,7 +24,7 @@ body {
   background: white;
   padding: 80px 20px;
   border-radius: 10px;
-  animation: fadeIn .5s ease-in;
+  animation: fadeIn 0.5s ease-in;
   margin-top: 0;
   box-shadow: 25px 25px 0px 0px #4710f6;
   .login-form {
@@ -124,6 +124,16 @@ body {
   border-radius: 10px;
   animation: fadeIn 0.5s ease-in;
   box-shadow: 25px 25px 0px 0px #4710f6;
+
+  display: flex;
+
+  .valueDashboard {
+    width: 50%;
+    border-left: 1px solid blue;
+  }
+  .activityDashboard {
+    width: 50%;
+  }
 }
 
 .value-selector-container {
@@ -143,4 +153,3 @@ body {
     text-align: center;
   }
 }
-

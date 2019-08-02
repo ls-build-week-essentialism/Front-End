@@ -93,8 +93,12 @@ function ActivityDisplay() {
             );
           }}
         />
+        <div className="activity-dashboard">
+          <Button compact color="Teal">
+            <Link to="/userDashboard">Go To Dashboard</Link>
+          </Button>
+        </div>
       </section>
-      <Link to="/userDashboard">Go</Link>
     </div>
   );
 }
