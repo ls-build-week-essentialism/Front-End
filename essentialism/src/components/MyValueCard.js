@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import { Button, List} from "semantic-ui-react";
 import "../../src/ValueSelectorForm.scss";
 
-
+//generates cards for My Values vis props from ValueSelectorForm.js
 function MyValueCard(props) {
     return(
-        <div id={props.id}>
+        <div id={props.id} className="my-value-card">
             <h4>{props.value}</h4>
-            <Button onClick={event => {
+            <button class="ui compact red button" onClick={event => {
                 props.removeValue(props.id)
             }}
              >
                 Remove Value
-            </Button>
+            </button>
         </div>
     )
 }
