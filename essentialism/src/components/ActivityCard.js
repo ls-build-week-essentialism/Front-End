@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, List } from "semantic-ui-react";
+import { Button, List } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 function ActivityCard(props) {
