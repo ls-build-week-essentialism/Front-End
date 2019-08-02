@@ -18,8 +18,6 @@ function DisplayList(props) {
 function UserDashboard(props) {
   const [myActivities, setMyActivities] = useState([]);
   const [myValues, setmyValues] = useState([]);
-
-
   // let sampleValues = "a";
 
   // axios
@@ -84,7 +82,11 @@ function UserDashboard(props) {
       <div className="valueDashboard">
         <h1>Activity</h1>
         {myActivities.map((activity, index) => (
-          <DisplayList key={index} display={activity.project_name} icon={"check"} />
+          <DisplayList
+            key={index}
+            display={activity.project_name}
+            icon={"check"}
+          />
         ))}
 
         <Button compact>
