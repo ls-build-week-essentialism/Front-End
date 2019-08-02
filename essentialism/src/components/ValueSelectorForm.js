@@ -3,17 +3,16 @@ import { useState, useEffect } from "react";
 import { Button, Form} from "semantic-ui-react";
 import ValueCard from "./ValueCard";
 import MyValueCard from "./MyValueCard";
+import { Route, Redirect, Link } from 'react-router-dom';
 import "../../src/ValueSelectorForm.scss";
 
 const defaultValues = ["Athletic Ability", "Art & Literature", "Being creative/inventing new things", "Independence", "Kindness and generosity", "Living in the moment", "Membership in a social group", "Music", "Improving my community", "My moral principles", "Nature and the environment", "Relationships with friends and family", "Sense of humor", "Success in my career"];
 
 function ValueSelectorForm() {
-  const [userValue, setUserValue] = useState("Enter new value here")
+  const [userValue, setUserValue] = useState("")
   const [myValues, setMyValues] = useState([]);
 
   function handleValSubmit(value) {
-    // event.preventDefault();
-    // console.log(event.target.value);
     setMyValues([...myValues, userValue])
     setUserValue("")
   }
@@ -21,21 +20,18 @@ function ValueSelectorForm() {
   const removeValue = (id) => {
     const valIndex = myValues.indexOf(id)
     myValues.splice(valIndex,1)
-    console.log(myValues)
     setMyValues([...myValues]);
   }
 
-  const confirmValues = () => {
-    if (myValues.length > 3) {
-      alert("Too many values!")
-      console.log(myValues.length)
-    } 
-  }
+  const confirmValues = myValues.length > 0 && myValues.length<=3;
+  const canAddValue = userValue.length > 0
 
   return (
     <div>
       <div className="value-selector-header">
           <h2>What is most important to you?</h2>
+          <p>The first step in essentialism is to identify those things that are most important to you. While you may find several of these resonate with you, essentialism requires that we begin with an intentionally narrow focus.</p>
+          <h3>SELECT NO MORE THAN THREE(3) VALUES</h3>
           <p>Select values that are important to you, or create your own below</p> 
       </div>
       <section className="value-selector-container">
@@ -45,11 +41,11 @@ function ValueSelectorForm() {
               <Form.Field>  
                 <h3>Add Your Own Values</h3>
                 <input  
-                  // name="myValue"
+                  placeholder={"Add you own values here"}
                   onChange={event => setUserValue(event.target.value)}
                   value={userValue}
                 />
-                <Button type="submit">Add to My Values</Button>
+                <button disabled={!canAddValue} class="medium blue ui button" type="submit">Add to My Values</button>
               </Form.Field>
             </Form>
           </div>
@@ -62,7 +58,7 @@ function ValueSelectorForm() {
                 <div className="value-card">
                   <div>{ValueCard(defValue)}</div>
                   <div className="button-container">
-                    <button onClick={ () => setMyValues([...myValues, defValue])} > Add to My Values </button>
+                    <button class="small gray ui button" onClick={ () => setMyValues([...myValues, defValue])} > Add to My Values </button>
                   </div>
                 </div>
               ))}
@@ -72,13 +68,12 @@ function ValueSelectorForm() {
 
       {/* Builds 'My Values' list with user inputs and selected default values. If myValues is empty, returns "Add values from the list..." */}
         <div className="my-values-container">
-          <div className="my-values-header">
-              <h3>My Values</h3>
-          </div>
+          {/* <div className="my-values-header">
+          </div> */}
           <div className="my-values-list">
+            <h2>My Values</h2>
             { myValues.length > 0 ? (
               <div className="my-values">
-                <div>
                   {myValues.map(userValue => (
                     <div className="value-card">
                       <MyValueCard
@@ -87,23 +82,25 @@ function ValueSelectorForm() {
                         value={userValue}
                         removeValue={removeValue}
                        />
-                      {/* <button onClick={removeValue}>Remove from My Values</button> */}
+                      
                     </div>
                   ))}
-                </div>
               </div>  
             ) : (
               <div>
-                <p>Add values from the list or create your own</p>
+                <h4>Add values from the list or create your own</h4>
               </div>
               )
             }
           </div>  
         </div>
-
-        <div>
-          <Button onClick={confirmValues}>Confirm My Values</Button>
-        </div>
+        
+        <div className="confirm-values">
+          <button disabled={!confirmValues} class="massive fluid yellow ui button"> <Link to="/activityForm"> 
+          Confirm My Values
+          </Link>
+          </button>
+        </div>)
 
       </section>
     </div>
