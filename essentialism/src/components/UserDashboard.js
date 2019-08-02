@@ -18,18 +18,20 @@ function DisplayList(props) {
 function UserDashboard(props) {
   const [myActivities, setMyActivities] = useState([]);
   const [myValues, setmyValues] = useState([]);
-  let sampleValues = "a";
 
-  axios
-    .post(
-      `https://only-essential.herokuapp.com/api/createdvalues/${
-        props.location.state.id
-      }`,
-      sampleValues
-    )
-    .then(res => {
-      console.log(res);
-    });
+
+  // let sampleValues = "a";
+
+  // axios
+  //   .post(
+  //     `https://only-essential.herokuapp.com/api/createdvalues/${
+  //       props.location.state.id
+  //     }`,
+  //     sampleValues
+  //   )
+  //   .then(res => {
+  //     console.log(res);
+  //   });
 
   useEffect(() => {
     axios
@@ -45,7 +47,7 @@ function UserDashboard(props) {
       .catch(err => {
         console.log(err);
       });
-  }, []);
+  }, [props.location.state.id]);
 
   useEffect(() => {
     axios
@@ -61,16 +63,16 @@ function UserDashboard(props) {
       .catch(err => {
         console.log(err);
       });
-  }, []);
+  }, [props.location.state.id]);
 
   return (
     <section className="dashboard-container">
       <div className="activityDashboard">
         <h1>Values</h1>
-        {myValues.map(value => {
+        {myValues.map((value, index) => {
           console.log("value", value.created_value_name);
           return (
-            <div>
+            <div key={index}>
               <DisplayList display={value.created_value_name} icon={"star"} />
             </div>
           );
@@ -81,8 +83,8 @@ function UserDashboard(props) {
       </div>
       <div className="valueDashboard">
         <h1>Activity</h1>
-        {myActivities.map(activity => (
-          <DisplayList display={activity.project_name} icon={"check"} />
+        {myActivities.map((activity, index) => (
+          <DisplayList key={index} display={activity.project_name} icon={"check"} />
         ))}
 
         <Button compact>

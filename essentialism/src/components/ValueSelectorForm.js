@@ -1,9 +1,9 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { Button, Form } from "semantic-ui-react";
+import { useState } from "react";
+import { Form } from "semantic-ui-react";
 import ValueCard from "./ValueCard";
 import MyValueCard from "./MyValueCard";
-import { Route, Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../../src/ValueSelectorForm.scss";
 
 const defaultValues = [
@@ -67,7 +67,7 @@ function ValueSelectorForm() {
                 />
                 <button
                   disabled={!canAddValue}
-                  class="medium blue ui button"
+                  className="medium blue ui button"
                   type="submit"
                 >
                   Add to My Values
