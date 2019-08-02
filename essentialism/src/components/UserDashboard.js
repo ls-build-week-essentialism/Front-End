@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ActivityCard from './ActivityCard';
-import UserValueCard from './UserValueCard';
 
 
 function UserDashboard(props) {
@@ -32,7 +30,11 @@ function UserDashboard(props) {
   return(
     <section className="dashboard-container">
       {/* {myActivities.map((activity, key) => <ActivityCard key={key} activity={activity.project_name}/>)} */}
-      {/* {myValues.map((value, key) => <UserValueCard key={key} value={value.created_value_name}/>)} */}
+      {myValues.map(value => 
+        <div>
+          <h5>{value}</h5>
+        </div>
+      )};
     </section>
   );
 }
