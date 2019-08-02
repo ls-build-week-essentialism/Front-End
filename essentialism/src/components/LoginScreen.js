@@ -55,6 +55,7 @@ export default function LoginScreen(props) {
     .catch(err => {
       console.log(err);
       console.log(isLoginValid);
+      alert("Invalid Username or Password");
     })
   };
   
